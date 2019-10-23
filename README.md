@@ -241,8 +241,9 @@ Example:
 	WITH SERDEPROPERTIES (
 	    "solr.document.mapping" = "id,date,title,name"
 	) TBLPROPERTIES (
-	    "zk.url" = "http://localhost:2181/solr",
+	    "zk.url" = "yourZookeeperHostname:2181/solr",
 	    "kerberos.use" = "true",
+		"solr.qs"="q=*%3A*",
 	    "kerberos.jaas.config.path" = "/tmp/jaas.conf",
 	    "kerberos.krb5.config.path" = "/etc/kerberos/user.keytab",
 	    "kerberos.useSubjectCredsOnly" = "false"
@@ -252,3 +253,4 @@ Acknowledgements
 ================
 
 Thanks to Francois Dang for his work on hive-solr (https://github.com/chimpler/hive-solr) that served as a base for this SolrStorageHandler.
+and https://github.com/SteppeChange/hive-solr-search
